@@ -1,0 +1,80 @@
+import React from "react"
+import { blog } from "../../../dummydata"
+import "./footer.css"
+import Logo from "./Logo.jpg";
+const Footer = () => {
+  return (
+    <>
+      <section className='newletter'>
+        <div className='container flexSB'>
+          <div className='left row'>
+            <h1>Newsletter - Stay tune and get the latest update</h1>
+            <span>Far far away, behind the word mountains</span>
+          </div>
+          <div className='right row'>
+            <input type='text' placeholder='Enter email address' />
+            <i className='fa fa-paper-plane'></i>
+          </div>
+        </div>
+      </section>
+      <footer>
+        <div className='container padding'>
+          <div className='box logo'>
+            <img src={Logo} alt="Logo" />
+           <span><br></br>The essence of Macht Mit lies in its simplicity and sincerity. It transcends language and profession, reaching the human spirit that longs for connection and purpose.</span>
+            <p>get free to contact us</p>
+
+            <i className='fab fa-facebook-f icon'></i>
+            <i className='fab fa-twitter icon'></i>
+            <i className='fab fa-instagram icon'></i>
+          </div>
+          <div className='box link'>
+            <h3>Explore</h3>
+            <ul>
+              <li>About Us</li>
+              <li>Services</li>
+              <li>Courses</li>
+              <li>Blog</li>
+              <li>Contact us</li>
+            </ul>
+          </div>
+          <div className='box link'>
+            <h3>Quick Links</h3>
+            <ul>
+              <li>Contact Us</li>
+              <li>Pricing</li>
+              <li>Terms & Conditions</li>
+              <li>Privacy</li>
+              <li>Feedbacks</li>
+            </ul>
+          </div>
+         
+          <div className='box last'>
+            <h3>Official info</h3>
+            <ul>
+              <li>
+                <i className='fa fa-map'></i>
+                 JP Nagar, Kanakapura Rd, Bengaluru, , Karnataka 560082
+              </li>
+              <li>
+                <i className='fa fa-phone-alt'></i>
+                	+91 91485 26550		
+              </li>
+              <li>
+                <i className='fa fa-paper-plane'></i>
+                Macht-mit@gmail.com
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+      <div className='legal'>
+        <p>
+          MACHT-MIT Copyright ©2025 All rights reserved <i className='fa fa-heart'></i> by KAUSTUBH R
+        </p>
+      </div>
+    </>
+  )
+}
+
+export default Footer
