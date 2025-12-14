@@ -14,8 +14,8 @@ const Contact = () => {
             <iframe src={map}></iframe>
           </div>
           <div className='right row'>
-            <h1>Contact us</h1>
-            <p>We're open for any suggestion or just to have a chat</p>
+           
+           
 
             <div className='items grid2'>
               <div className='box'>
@@ -44,8 +44,7 @@ const Contact = () => {
               <button className='primary-btn'>SEND MESSAGE</button>
             </form>
 
-            <h3>Follow us here</h3>
-            <span>FACEBOOK TWITTER INSTAGRAM </span>
+            
           </div>
         </div>
       </section>

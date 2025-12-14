@@ -71,7 +71,7 @@ const Footer = () => {
       </footer>
       <div className='legal'>
         <p>
-          MACHT-MIT Copyright ©2025 All rights reserved <i className='fa fa-heart'></i> by KAUSTUBH R
+          MACHT-MIT Copyright ©2026 All rights reserved <i className='fa fa-heart'></i> by KAUSTUBH R
         </p>
       </div>
     </>
