@@ -1,8 +1,17 @@
 import React from "react";
 import { price } from "../../dummydata";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const PriceCard = () => {
+  const history = useHistory();
+
+  const handleEnroll = (course) => {
+    history.push("/payments", {
+      courseName: course.name,
+      coursePrice: course.price,
+    });
+  };
+
   return (
     <>
       {price.map((val, index) => (
@@ -10,13 +19,14 @@ const PriceCard = () => {
           <h4>{val.name}</h4>
           <h1>{val.price}</h1>
 
-          {/* Render UL directly, no <p> */}
           {val.desc}
 
-          {/* Correct React Router Link */}
-          <Link to="/payments">
-            <button className="outline-btn">GET STARTED</button>
-          </Link>
+          <button
+            className="outline-btn"
+            onClick={() => handleEnroll(val)}
+          >
+            ENROLL NOW
+          </button>
         </div>
       ))}
     </>

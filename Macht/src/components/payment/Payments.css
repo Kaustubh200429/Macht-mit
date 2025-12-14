@@ -304,3 +304,23 @@ button:hover{
     justify-content: center;
   }
 }
+.selected-course {
+  background: #f9fdfc;
+  border: 1px solid #e5e7eb;
+  padding: 16px;
+  max-width: 400px;
+  margin: 20px auto;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.selected-course h3 {
+  margin-bottom: 8px;
+  color: #1eb2a6;
+}
+
+.selected-course .price {
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+}

@@ -1,76 +1,64 @@
 import React, { useState } from "react";
 import "./Payments.css";
+import { Link, useLocation } from "react-router-dom";
 
 const Payments = () => {
   const [method, setMethod] = useState("upi");
+
+  // 🔹 Get selected course data
+  const location = useLocation();
+  const courseName = location.state?.courseName || "German Course";
+  const coursePrice = location.state?.coursePrice || "₹0";
 
   return (
     <div className="payment-container">
       <h1>Complete Your Payment</h1>
       <p>Select a payment method to proceed</p>
 
-
-
       <div className="payment-box">
-        <div class="stepper-box">
-  <div class="stepper-step stepper-completed">
-    <div class="stepper-circle">
-      <svg
-        viewBox="0 0 16 16"
-        class="bi bi-check-lg"
-        fill="currentColor"
-        height="16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"
-        ></path>
-      </svg>
-    </div>
-    <div class="stepper-line"></div>
-    <div class="stepper-content">
-      <div class="stepper-title">German Course selected</div>
-      <div class="stepper-status">Full Course</div>
-      <div class="stepper-time">Time Zone : IST</div>
-    </div>
-  </div>
 
-  <div class="stepper-step stepper-active">
-    <div class="stepper-circle">2</div>
-    <div class="stepper-line"></div>
-    <div class="stepper-content">
-      <div class="stepper-title">Processing</div>
-      <div class="stepper-status">In Progress</div>
-      <div class="stepper-time">Time Zone : IST</div>
-    </div>
-  </div>
+        {/* STEPPER */}
+        <div className="stepper-box">
 
-  <div class="stepper-step stepper-pending">
-    <div class="stepper-circle">3</div>
-    <div class="stepper-content">
-      <div class="stepper-title">Payment Successfull</div>
-      <div class="stepper-status">Pending</div>
-      <div class="stepper-time">Time Zone : IST</div>
-    </div>
-  </div>
+          <div className="stepper-step stepper-completed">
+            <div className="stepper-circle">
+              ✓
+            </div>
+            <div className="stepper-line"></div>
+            <div className="stepper-content">
+              <div className="stepper-title">{courseName}</div>
+              <div className="stepper-status">Amount: {coursePrice}</div>
+              <div className="stepper-time">Time Zone : IST</div>
+            </div>
+          </div>
 
-  <div class="stepper-controls">
-    <button class="stepper-button">Cancel Payment
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        fill="currentColor"
-        class="bi bi-arrow-left"
-        viewBox="0 0 16 16"
-      >
-       </svg>
-       
-    </button>
-  </div>
-</div>
-        {/* LEFT SIDE */}
+          <div className="stepper-step stepper-active">
+            <div className="stepper-circle">2</div>
+            <div className="stepper-line"></div>
+            <div className="stepper-content">
+              <div className="stepper-title">Processing</div>
+              <div className="stepper-status">In Progress</div>
+              <div className="stepper-time">Time Zone : IST</div>
+            </div>
+          </div>
+
+          <div className="stepper-step stepper-pending">
+            <div className="stepper-circle">3</div>
+            <div className="stepper-content">
+              <div className="stepper-title">Payment Successful</div>
+              <div className="stepper-status">Pending</div>
+              <div className="stepper-time">Time Zone : IST</div>
+            </div>
+          </div>
+
+          <div className="stepper-controls">
+            <Link to="/pricing" className="stepper-button">
+              Cancel Payment
+            </Link>
+          </div>
+        </div>
+
+        {/* PAYMENT METHODS */}
         <div className="payment-methods">
           <button onClick={() => setMethod("upi")}>UPI</button>
           <button onClick={() => setMethod("card")}>Card</button>
@@ -78,19 +66,23 @@ const Payments = () => {
           <button onClick={() => setMethod("wallet")}>Wallet</button>
         </div>
 
-        {/* RIGHT SIDE */}
+        {/* PAYMENT CONTENT */}
         <div className="payment-content">
+
           {method === "upi" && (
             <div className="upi">
               <h2>UPI Payment</h2>
               <p>Scan QR code using any UPI app</p>
 
               <img
-                src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=yourupi@upi&pn=MACHTMIT&cu=INR"
+                src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=9148526550@ybl&pn=MACHTMIT&am=${coursePrice.replace("₹", "")}&cu=INR`}
                 alt="UPI QR"
               />
 
-              <p className="upi-id">UPI ID: <b>yourupi@upi</b></p>
+              <p className="upi-id">
+                UPI ID: <b>9148526550@ybl</b>
+              </p>
+              <p><strong>Amount:</strong> {coursePrice}</p>
             </div>
           )}
 
@@ -129,6 +121,7 @@ const Payments = () => {
               <button>Google Pay</button>
             </div>
           )}
+
         </div>
       </div>
     </div>

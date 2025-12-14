@@ -1,10 +1,11 @@
 import React from "react"
 import Heading from "../../common/heading/Heading"
 import "./Hero.css"
-
+import logo from '../Logo.jpg';
 const Hero = () => {
   return (
     <>
+    
       <section className='hero'>
         <div className='container'>
           <div className='row'>

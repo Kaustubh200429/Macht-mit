@@ -42,8 +42,8 @@ const Footer = () => {
           <div className='box link'>
             <h3>Quick Links</h3>
             <ul>
-              <li>Contact Us</li>
-              <li>Pricing</li>
+              
+              <li><Link to='/pricing'>Pricing</Link></li>
               
               <li>Privacy</li>
               <li>Feedbacks</li>
