@@ -2,6 +2,7 @@ import React from "react"
 import { blog } from "../../../dummydata"
 import "./footer.css"
 import Logo from "./Logo.jpg";
+import { Link } from "react-router-dom"
 const Footer = () => {
   return (
     <>
@@ -31,11 +32,11 @@ const Footer = () => {
           <div className='box link'>
             <h3>Explore</h3>
             <ul>
-              <li>About Us</li>
-              <li>Services</li>
-              <li>Courses</li>
-              <li>Blog</li>
-              <li>Contact us</li>
+             <li><Link to='/about'>About</Link></li>
+             
+              <li> <Link to='/courses'>All Courses</Link></li>
+              <li><Link to='/team'>Team</Link></li>
+              <li><Link to='/contact'>Contact Us</Link></li>
             </ul>
           </div>
           <div className='box link'>
@@ -43,7 +44,7 @@ const Footer = () => {
             <ul>
               <li>Contact Us</li>
               <li>Pricing</li>
-              <li>Terms & Conditions</li>
+              
               <li>Privacy</li>
               <li>Feedbacks</li>
             </ul>
@@ -54,7 +55,7 @@ const Footer = () => {
             <ul>
               <li>
                 <i className='fa fa-map'></i>
-                 JP Nagar, Kanakapura Rd, Bengaluru, , Karnataka 560082
+                 JP Nagar, Kanakapura Rd, Bengaluru, Karnataka 560082 India.
               </li>
               <li>
                 <i className='fa fa-phone-alt'></i>

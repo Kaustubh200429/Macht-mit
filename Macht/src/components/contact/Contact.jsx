@@ -20,7 +20,7 @@ const Contact = () => {
             <div className='items grid2'>
               <div className='box'>
                 <h4>ADDRESS:</h4>
-                <p>JP Nagar, Kanakapura Rd, Bengaluru, , Karnataka 560082</p>
+                <p>JP Nagar, Kanakapura Rd, Bengaluru, Karnataka 560082 India.</p>
               </div>
               <div className='box'>
                 <h4>EMAIL:</h4>
