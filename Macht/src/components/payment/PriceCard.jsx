@@ -1,21 +1,29 @@
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const PriceCard = ({ item }) => {
-  const history = useHistory();
+  const navigate = useNavigate();
+
+  const handleEnroll = () => {
+    navigate("/payments", {
+      state: {
+        planName: item.name,
+        price: item.price,     // ₹28,000
+        source: "pricing",
+      },
+    });
+  };
 
   return (
     <div className="price-card">
       <h3>{item.name}</h3>
       <h1>{item.price}</h1>
-
       {item.desc}
 
-      <button onClick={() => history.push("/payments")}>
-        GET STARTED
+      <button onClick={handleEnroll}>
+        ENROLL NOW
       </button>
     </div>
   );
 };
 
 export default PriceCard;
-

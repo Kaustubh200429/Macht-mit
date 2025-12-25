@@ -3,19 +3,19 @@ export const homeAbout = [
     id: 1,
     cover: "https://img.icons8.com/dotty/80/000000/storytelling.png",
     title: "Online Courses",
-    desc: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
+    desc: "Explore high-quality online courses designed to help you learn anytime, anywhere. Our courses are structured, engaging, and industry-relevant to build strong foundations and practical skills.",
   },
   {
     id: 1,
     cover: "https://img.icons8.com/ios/80/000000/diploma.png",
     title: "Earn A Certificates",
-    desc: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
+    desc: "Receive recognized certificates upon successful course completion to showcase your skills, strengthen your resume, and boost your career opportunities.",
   },
   {
     id: 1,
     cover: "https://img.icons8.com/ios/80/000000/athlete.png",
     title: "Learn with Expert",
-    desc: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
+    desc: "Gain knowledge directly from experienced instructors and industry professionals who guide you with real-world insights and practical learning approaches.",
   },
 ]
 export const awrapper = [
