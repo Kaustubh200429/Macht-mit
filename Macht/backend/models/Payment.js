@@ -1,16 +1,15 @@
 const mongoose = require("mongoose");
 
-const paymentSchema = new mongoose.Schema({
-  planName: String,
-  amount: Number,
-  status: {
-    type: String,
-    default: "Pending",
+const paymentSchema = new mongoose.Schema(
+  {
+    planName: String,
+    amount: Number,
+    status: {
+      type: String,
+      default: "Pending",
+    },
   },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
-});
+  { timestamps: true }
+);
 
 module.exports = mongoose.model("Payment", paymentSchema);

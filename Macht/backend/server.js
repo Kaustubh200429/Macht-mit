@@ -1,24 +1,20 @@
 const express = require("express");
 const cors = require("cors");
-require("dotenv").config();
+const mongoose = require("mongoose");
 
-const connectDB = require("./config/db");
 const adminRoutes = require("./routes/admin.routes");
+const paymentRoutes = require("./routes/payment.routes");
 
 const app = express();
 
-// Middleware
 app.use(cors());
 app.use(express.json());
 
-// DB Connection
-connectDB();
+mongoose.connect(process.env.MONGO_URI);
 
-// Routes
 app.use("/api/admin", adminRoutes);
+app.use("/api/payments", paymentRoutes); // ✅ IMPORTANT
 
-// Server
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server running on ${PORT}`);
+app.listen(5000, () => {
+  console.log("Server running on 5000");
 });
