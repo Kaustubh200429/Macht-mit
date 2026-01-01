@@ -8,7 +8,7 @@ const PriceCard = () => {
   const handleEnroll = (course) => {
     history.push("/payments", {
       courseName: course.name,
-      coursePrice: course.price,
+      fullPrice: course.price, // ✅ MATCH Payment.jsx
     });
   };
 

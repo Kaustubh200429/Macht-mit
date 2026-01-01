@@ -1,19 +1,15 @@
-
-
 .loader {
-  --main-size: 4em;
-  --text-color: #ffffff;
+  --main-size: 6em;
+  --text-color: #000000;
   --shine-color: #ffffff40;
-  --shadow-color: #aaaaaa;
+  --shadow-color: #ae6f6f;
   display: flex;
-  margin-left: 400px;
-  background-color: black;
   justify-content: center;
   align-items: center;
   overflow: hidden;
- 
   user-select: none;
   position: relative;
+  padding-inline: 700px;
   font-size: var(--main-size);
   font-weight: 900;
   text-transform: uppercase;
@@ -31,7 +27,6 @@
   white-space: nowrap;
   overflow: hidden;
   position: absolute;
-  
 }
 
 .loader .text:nth-child(1) {
@@ -201,7 +196,6 @@
   width: calc(var(--main-size) / 2);
   margin-top: 0.9em;
   border-radius: 0.05em;
-  
 }
 
 .loader .line::before {

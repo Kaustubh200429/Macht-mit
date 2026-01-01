@@ -14,9 +14,6 @@ const Loader = () => {
         <div className="text"><span>Loading</span></div>
         <div className="text"><span>Loading</span></div>
         <div className="text"><span>Loading</span></div>
-        <div className="text"><span>.</span></div>
-        <div className="text"><span>.</span></div>
-        <div className="text"><span>.</span></div>
         <div className="line"></div>
       </div>
     </div>
