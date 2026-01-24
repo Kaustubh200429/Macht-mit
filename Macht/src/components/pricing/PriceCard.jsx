@@ -1,14 +1,30 @@
-import React from "react";
 import { price } from "../../dummydata";
 import { useHistory } from "react-router-dom";
+import { isAuthenticated } from "../auth";
+import AppToast from "../toast/AppToast";
+import { useState } from "react";
 
 const PriceCard = () => {
   const history = useHistory();
-
+  const [toast, setToast] = useState({
+    open: false,
+    message: "",
+    severity: "error",
+  });
   const handleEnroll = (course) => {
-    history.push("/payments", {
-      courseName: course.name,
-      fullPrice: course.price, // ✅ MATCH Payment.jsx
+    if (isAuthenticated()) {
+      history.push("/enroll", {
+        courseName: course.name,
+        fullPrice: course.price?.replace(/[^\d]/g, ""),
+        monthlyPrice: course.pricePer,
+      });
+      return;
+    }
+    setToast({
+      open: true,
+      message:
+        "Oops! It appears you're not logged in. Please log in to proceed further.",
+      severity: "error",
     });
   };
 
@@ -21,14 +37,17 @@ const PriceCard = () => {
 
           {val.desc}
 
-          <button
-            className="outline-btn"
-            onClick={() => handleEnroll(val)}
-          >
+          <button className="outline-btn" onClick={() => handleEnroll(val)}>
             ENROLL NOW
           </button>
         </div>
       ))}
+      <AppToast
+        open={toast.open}
+        setOpen={(open) => setToast({ ...toast, open })}
+        message={toast.message}
+        severity={toast.severity}
+      />
     </>
   );
 };

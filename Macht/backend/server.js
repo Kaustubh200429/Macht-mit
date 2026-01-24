@@ -1,22 +1,41 @@
 const express = require("express");
 const cors = require("cors");
+const rateLimit = require("express-rate-limit"); // New Import
 const connectDB = require("./config/db");
 
-const adminRoutes = require("./routes/admin.routes");
-const paymentRoutes = require("./routes/payment.routes");
+// Load Env Vars
+require("dotenv").config();
 
 const app = express();
 
-app.use(cors());
-app.use(express.json());
-
+// Database connection
 connectDB();
 
-app.use("/api/admin", adminRoutes);
-app.use("/api/payments", paymentRoutes);
+// Rate Limiting (100 requests per 15 mins)
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 100,
+  message: "Too many requests from this IP, please try again after 15 minutes",
+});
+app.use(limiter);
+
+// Restrict CORS to frontend only
+app.use(
+  cors({
+    origin: "http://localhost:3000", // Update this to match your frontend URL
+    credentials: true,
+  }),
+);
+
+app.use(express.json());
+
+// Routes
+app.use("/api/users", require("./routes/userRoutes"));
 
 app.get("/", (req, res) => {
   res.send("API Running");
 });
 
-app.listen(5000, () => console.log("Server running on 5000"));
+const PORT = process.env.PORT || 5001;
+
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

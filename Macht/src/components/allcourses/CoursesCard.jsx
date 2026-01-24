@@ -1,25 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./courses.css";
 import { useHistory } from "react-router-dom";
 import Loader from "../home/Loader";
-import Heading from "../common/heading/Heading"
-const CoursesCard = () => {
-  const history = useHistory();
-  const [courses, setCourses] = useState([]);
-  const [loading, setLoading] = useState(true);
+import Heading from "../common/heading/Heading";
+import AppToast from "../toast/AppToast";
+import { isAuthenticated } from "../auth";
+import { coursesCard } from "../../dummydata";
 
-  useEffect(() => {
-    fetch("https://raw.githubusercontent.com/Kaustubh200429/macht-mit-data/main/courses.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setCourses(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error("Fetch error:", err);
-        setLoading(false);
-      });
-  }, []);
+
+
+const CoursesCard = () => {
+  
+  const history = useHistory();
+ const [courses] = useState(coursesCard);
+
+ // 👈 DIRECT DATA
+  const [loading] = useState(false);
+
+  const [toast, setToast] = useState({
+    open: false,
+    message: "",
+    severity: "error",
+  });
 
   if (loading) return <Loader />;
 
@@ -27,9 +29,10 @@ const CoursesCard = () => {
     <section
       className="coursesCard"
       style={{ background: "#f9f9f9", padding: "80px 0" }}
-    ><Heading subtitle='COURSES' title='Browse Our Online Courses' />
+    >
+      <Heading subtitle="COURSES" title="Browse Our Online Courses" />
+
       <div className="container grid2">
-        
         {courses.map((course) => (
           <div className="items" key={course.id}>
             <div className="content flex">
@@ -70,26 +73,40 @@ const CoursesCard = () => {
             </div>
 
             <div className="price">
-              <h3>
-                {course.priceAll} / {course.pricePer}
-              </h3>
+              <h3>{course.priceAll}</h3>
             </div>
 
             <button
               className="outline-btn"
-              onClick={() =>
-                history.push("/payments", {
-                  courseName: course.coursesName,
-                  fullPrice: course.priceAll,
-                  monthlyPrice: course.pricePer,
-                })
-              }
+              onClick={() => {
+                if (isAuthenticated()) {
+                  history.push("/enroll", {
+                    courseName: course.coursesName,
+                    fullPrice: course.priceAll?.replace(/[^\d]/g, ""),
+                    monthlyPrice: course.pricePer,
+                  });
+                  return;
+                }
+                setToast({
+                  open: true,
+                  message:
+                    "Oops! It appears you're not logged in. Please log in to proceed further.",
+                  severity: "error",
+                });
+              }}
             >
               ENROLL NOW
             </button>
           </div>
         ))}
       </div>
+
+      <AppToast
+        open={toast.open}
+        setOpen={(open) => setToast({ ...toast, open })}
+        message={toast.message}
+        severity={toast.severity}
+      />
     </section>
   );
 };

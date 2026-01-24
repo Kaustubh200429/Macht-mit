@@ -38,131 +38,89 @@ export const awrapper = [
   },
 ]
 export const coursesCard = [
-  {
-    id: 1,
-    cover: "../images/courses/c1.png",
-    coursesName: "German A1 – Beginner",
-    courTeacher: [
+   {
+    "id": 1,
+    "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRDknhmSFHPKoWP0YY3E77IbbjWrZcESFIkQ&s",
+    "coursesName": "German A1 – Beginner",
+    "courTeacher": [
       {
-        dcover: "./images/pavan.jpg",
-        name: "PAVAN RAMAKRISHNA  ",
-        totalTime: "(190 hrs)",
-      },
+        "dcover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrsM-doeSJ8GI3LT0wxcGywlwxgPCe5XzxAA&s",
+        "name": "PAVAN RAMAKRISHNA",
+        "totalTime": "190 hrs"
+      }
     ],
-    priceAll: "₹12,000 Full Course",
-    pricePer: "₹2000 per month",
+    "priceAll": "₹15,000 Full Course",
+  
   },
   {
-    id: 2,
-    cover: "../images/courses/c2.png",
-    coursesName: "German A2 – Elementary",
-    courTeacher: [
+    "id": 2,
+    "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRDknhmSFHPKoWP0YY3E77IbbjWrZcESFIkQ&s",
+    "coursesName": "German A2 – Elementary",
+    "courTeacher": [
       {
-        dcover: "./images/pavan.jpg",
-        name: "PAVAN RAMAKRISHNA",
-        totalTime: "(125 hrs)",
-      },
+        "dcover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrsM-doeSJ8GI3LT0wxcGywlwxgPCe5XzxAA&s",
+        "name": "PAVAN RAMAKRISHNA",
+        "totalTime": "125 hrs"
+      }
     ],
-    priceAll: "₹22,000 Full Course",
-    pricePer: "₹3,500 per month",
+    "priceAll": "₹18,000 Full Course",
+  
   },
   {
-    id: 3,
-    cover: "../images/courses/c3.png",
-    coursesName: "German B1 – Intermediate Level",
-    courTeacher: [
+    "id": 3,
+    "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRDknhmSFHPKoWP0YY3E77IbbjWrZcESFIkQ&s",
+    "coursesName": "German B1 – Intermediate Level",
+    "courTeacher": [
       {
-        dcover: "./images/pavan.jpg",
-        name: "PAVAN RAMAKRISHNA",
-        totalTime: "(150 hrs)",
-      },
+        "dcover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrsM-doeSJ8GI3LT0wxcGywlwxgPCe5XzxAA&s",
+        "name": "PAVAN RAMAKRISHNA",
+        "totalTime": "150 hrs"
+      }
     ],
-    priceAll: "₹25,000 All Course",
-    pricePer: "₹4,000 per month",
+    "priceAll": "₹31,000 All Course",
+   
   },
   {
-    id: 4,
-    cover: "../images/courses/c4.png",
-    coursesName: "German A1 + A2 Combo",
-    courTeacher: [
+    "id": 4,
+    "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRDknhmSFHPKoWP0YY3E77IbbjWrZcESFIkQ&s",
+    "coursesName": "German A1 + A2 Combo",
+    "courTeacher": [
       {
-        dcover: "./images/pavan.jpg",
-        name: "PAVAN RAMAKRISHNA",
-        totalTime: "(340 hrs)",
-      },
+        "dcover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrsM-doeSJ8GI3LT0wxcGywlwxgPCe5XzxAA&s",
+        "name": "PAVAN RAMAKRISHNA",
+        "totalTime": "340 hrs"
+      }
     ],
-    priceAll: "₹30,000 Combo Course",
-    pricePer: "₹5,000 per month",
+    "priceAll": "₹32,000 Combo Course",
+  
   },
   {
-    id: 5,
-    cover: "../images/courses/c5.png",
-    coursesName: "Spoken German for Daily Life",
-    courTeacher: [
+    "id": 5,
+    "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRDknhmSFHPKoWP0YY3E77IbbjWrZcESFIkQ&s",
+    "coursesName": "German A1 + A2 + B2 Combo",
+    "courTeacher": [
       {
-        dcover: "./images/pavan.jpg",
-        name: "PAVAN RAMAKRISHNA",
-        totalTime: "(150 hrs)",
-      },
+        "dcover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrsM-doeSJ8GI3LT0wxcGywlwxgPCe5XzxAA&s",
+        "name": "PAVAN RAMAKRISHNA",
+        "totalTime": "150 hrs"
+      }
     ],
-    priceAll: "₹8,000 All Course",
-    pricePer: "₹1,500 per month",
+    "priceAll": "₹66,000 All Course",
+  
   },
   {
-    id: 6,
-    cover: "../images/courses/c6.png",
-    coursesName: "German for Jobs, Visa & Ausbildung",
-    courTeacher: [
+    "id": 6,
+    "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRDknhmSFHPKoWP0YY3E77IbbjWrZcESFIkQ&s",
+    "coursesName": "German B2 – Intermediate Level",
+    "courTeacher": [
       {
-        dcover: "./images/pavan.jpg",
-        name: "PAVAN RAMAKRISHNA",
-        totalTime: "(300 hrs)",
-      },
+        "dcover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrsM-doeSJ8GI3LT0wxcGywlwxgPCe5XzxAA&s",
+        "name": "PAVAN RAMAKRISHNA",
+        "totalTime": "300 hrs"
+      }
     ],
-    priceAll: "₹18,000 All Course",
-    pricePer: "₹3,000 per month",
-  },
-  {
-    id: 7,
-    cover: "../images/courses/c7.png",
-    coursesName: "German Complete Program (A1 → B1)",
-    courTeacher: [
-      {
-        dcover: "./images/pavan.jpg",
-        name: "PAVAN RAMAKRISHNA",
-        totalTime: "(350 hrs)",
-      },
-    ],
-    priceAll: "₹70,000 All Course",
-    pricePer: "₹10,000 per month",
-  },
-  {
-    id: 8,
-    cover: "../images/courses/c8.png",
-    coursesName: "German B2 – Upper Intermediate Level",
-    courTeacher: [
-      {
-        dcover: "./images/pavan.jpg",
-        name: "PAVAN RAMAKRISHNA",
-        totalTime: "(200 hrs)",
-      },
-    ],
-    priceAll: "₹35,000 All Course",
-    pricePer: "₹5,500 per month",
-  },
-  {
-    id: 9,
-    cover: "../images/courses/c9.png",
-    coursesName: "German C1 – Advanced / Academic Level",
-    courTeacher: [
-      {
-        dcover: "./images/pavan.jpg",
-        name: "PAVAN RAMAKRISHNA",
-        totalTime: "(240 hrs)",
-      },
-    ],
-    priceAll: "₹45,000 All Course",
-    pricePer: "₹7,000 per month",
+    "priceAll": "₹36,000 All Course",
+   
   },
 ]
 export const online = [
@@ -188,8 +146,9 @@ export const team = [
   },
 ]
 export const price = [
-  {
-    name: "Online Basic (A1)",price: "₹12,000",
+   {
+    name: "German A1 – Beginner (A1)",
+    price: "₹15,000",
    desc: (
       <ul className="features">
         <li>
@@ -211,8 +170,8 @@ export const price = [
     ),
   },
   {
-    name: "Online Standard (A1 + A2)",
-    price: "₹28,000",
+    name: "German Standard (A1 + A2)",
+    price: "₹32,000",
     desc:  (
       <ul className="features">
         <li><i className="fa fa-check"></i> A1 + A2 Complete Coverage</li>
@@ -224,8 +183,8 @@ export const price = [
     ),
   },
   {
-    name: "Online Advanced (B1)",
-    price: "₹25,000 ",
+    name: "German Advanced (A1 + A2 + B2)",
+    price: "₹66,000 ",
     desc: (
       <ul className="features">
         <li><i className="fa fa-check"></i> Advanced Grammar & Speaking</li>
@@ -236,8 +195,8 @@ export const price = [
       </ul>
     ),},
   {
-    name: "Offline Classroom (A1)",
-    price: "₹20,000",
+    name: "German (B1)",
+    price: "₹31,000",
     desc: (
       <ul className="features">
         <li><i className="fa fa-check"></i> Classroom-Based Learning</li>
@@ -248,8 +207,8 @@ export const price = [
       </ul>
     ),},
   {
-    name: "Offline Classroom (A2)",
-    price: "₹22,000",
+    name: "German A2 – Beginner (A2)",
+    price: "₹18,000",
     desc: (
       <ul className="features">
       <li><i className="fa fa-check"></i> Classroom-Based Learning</li>
@@ -260,18 +219,6 @@ export const price = [
       <li><i className="fa fa-check"></i> Printed Study Materials</li>
       <li><i className="fa fa-check"></i> Trainer Feedback & Assessment</li>
     </ul>
-    ),},
-  {
-    name: "Offline Premium (A1 → B1)",
-    price: "₹70,000",
-    desc: (
-      <ul className="features">
-        <li><i className="fa fa-check"></i> Complete German Foundation</li>
-        <li><i className="fa fa-check"></i> Advanced Speaking & Writing</li>
-        <li><i className="fa fa-check"></i> Goethe Exam Preparation</li>
-        <li><i className="fa fa-check"></i> Career & Visa Assistance</li>
-        <li><i className="fa fa-check"></i> Institute Certification</li>
-      </ul>
     ),},
 ]
 export const faq = [

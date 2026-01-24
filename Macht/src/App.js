@@ -18,13 +18,21 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  useLocation,
 } from "react-router-dom";
+import LoginPage from "./components/login/Login";
+import AdminDashBoard from "./components/admin-dashboard/AdminDashboard";
+import EnRollToCourse from "./components/enrollToCourse/EnrollToCourse";
+import SignupPage from "./components/signup/Signup";
 
 function App() {
-  return (
-    <Router>
-      <Header />
+  const location = useLocation();
+  const hideLayoutRoutes = ["/login"];
+  const shouldHideLayout = hideLayoutRoutes.includes(location.pathname);
 
+  return (
+    <>
+      <Header />
       <Switch>
         {/* PUBLIC */}
         <Route exact path="/" component={Home} />
@@ -34,18 +42,21 @@ function App() {
         <Route exact path="/pricing" component={Pricing} />
         <Route exact path="/payments" component={Payments} />
         <Route exact path="/contact" component={Contact} />
+        <Route exact path="/login" component={LoginPage} />
+        <Route exact path="/admin-dashboard" component={AdminDashBoard} />
+        <Route exact path="/enroll" component={EnRollToCourse} />
+        <Route exact path="/signup" component={SignupPage} />
 
         {/* ADMIN */}
         <Route exact path="/admin" component={AdminLogin} />
-       <ProtectedRoute
+        <ProtectedRoute
           exact
           path="/admin/dashboard"
           component={AdminDashboard}
         />
       </Switch>
-
-      <Footer />
-    </Router>
+      {!shouldHideLayout && <Footer />}
+    </>
   );
 }
 

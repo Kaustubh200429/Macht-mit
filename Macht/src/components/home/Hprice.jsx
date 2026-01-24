@@ -20,7 +20,7 @@ const Hprice = () => {
         setLoading(false);
       });
   }, []);
-
+ 
   return (
     <section className="hprice padding">
       <Heading subtitle="OUR PRICING" title="Pricing & Packages" />
