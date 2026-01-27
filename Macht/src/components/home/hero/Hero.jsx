@@ -10,7 +10,7 @@ const Hero = () => {
       <section className='hero'>
         <div className='container'>
           <div className='row'>
-            <Heading subtitle='WELCOME TO MACHT-MIT' title='German Language Institute' />
+            <Heading subtitle='WELCOME TO MACHT-MIT' title='True insight into Germany begins with its people' />
            
             <div className='button'>
               <Link to='/contact'><button className='primary-btn'>

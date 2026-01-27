@@ -40,11 +40,16 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    
     enrollmentStatus: {
       type: String,
       // Enums ensure only valid statuses are saved
       enum: ["active", "inactive", "suspended", "pending"],
       default: "pending",
+    },
+    enrollmentApprovedAt: {
+      type: Date, // ✅ set when admin approves
+      default: null,
     },
     role: {
       type: String,

@@ -222,7 +222,7 @@ const EnRollToCourse = () => {
           onChange={handleChange}
           margin="dense"
         >
-          <MenuItem value="yes">Yes (+₹175)</MenuItem>
+          <MenuItem value="yes">Yes (+₹500)</MenuItem>
           <MenuItem value="no">No</MenuItem>
         </TextField>
 

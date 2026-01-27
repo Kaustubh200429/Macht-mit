@@ -2,14 +2,14 @@ export const homeAbout = [
   {
     id: 1,
     cover: "https://img.icons8.com/dotty/80/000000/storytelling.png",
-    title: "Online Courses",
-    desc: "Explore high-quality online courses designed to help you learn anytime, anywhere. Our courses are structured, engaging, and industry-relevant to build strong foundations and practical skills.",
+    title: "Benifits of Macht-Mit",
+    desc: "After Serving in germany, the group is here in bangalore to teach. Learn with the professionals. We also help with accommodation, visa, and professional job search.",
   },
   {
     id: 1,
     cover: "https://img.icons8.com/ios/80/000000/diploma.png",
     title: "Earn A Certificates",
-    desc: "Receive recognized certificates upon successful course completion to showcase your skills, strengthen your resume, and boost your career opportunities.",
+    desc: "Receive recognized MACHT-MIT certificates upon successful course completion to showcase your skills, strengthen your resume, and boost your career opportunities.",
   },
   {
     id: 1,
@@ -97,7 +97,7 @@ export const coursesCard = [
   {
     "id": 5,
     "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRDknhmSFHPKoWP0YY3E77IbbjWrZcESFIkQ&s",
-    "coursesName": "German A1 + A2 + B2 Combo",
+    "coursesName": "German A1 + A2 + B1 Combo",
     "courTeacher": [
       {
         "dcover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrsM-doeSJ8GI3LT0wxcGywlwxgPCe5XzxAA&s",
@@ -183,7 +183,7 @@ export const price = [
     ),
   },
   {
-    name: "German Advanced (A1 + A2 + B2)",
+    name: "German Advanced (A1 + A2 + B1)",
     price: "₹66,000 ",
     desc: (
       <ul className="features">

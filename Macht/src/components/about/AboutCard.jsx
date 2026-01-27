@@ -13,7 +13,7 @@ const AboutCard = () => {
             <img src='./images/4.jpg' alt='' />
           </div>
           <div className='right row'>
-            <Heading subtitle='LEARN GERMAN' title='Benefits About Online MACHT-MIT' />
+            <Heading  />
             <div className='items'>
               {homeAbout.map((val) => {
                 return (

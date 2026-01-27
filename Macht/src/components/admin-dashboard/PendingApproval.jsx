@@ -1,31 +1,86 @@
-import React from "react";
-import { Box, Chip, Tooltip } from "@mui/material";
-import { DataGrid, GridColDef } from "@mui/x-data-grid";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import { getAuthCookie } from "../auth";
+import { Box, Chip, Tooltip, Button, Stack } from "@mui/material";
+import { DataGrid } from "@mui/x-data-grid";
+import { getAuthCookie } from "../auth/index";
 
 const PendingApproval = () => {
   const user = getAuthCookie();
+  const [students, setStudents] = useState([]);
+
+  /* ================= FETCH PENDING STUDENTS ================= */
+  const getPendingStudents = async () => {
+    try {
+      const res = await axios.get(
+        "http://localhost:5001/api/users?status=pending",
+        {
+          headers: {
+            Authorization: `Bearer ${user?.token}`,
+          },
+        }
+      );
+
+      if (res.status === 200) {
+        setStudents(res.data);
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(() => {
+    getPendingStudents();
+  }, []);
+
+  /* ================= APPROVE ================= */
+  const approveStudent = async (id) => {
+    await axios.put(
+      `http://localhost:5001/api/users/approve/${id}`,
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${user?.token}`,
+        },
+      }
+    );
+    getPendingStudents(); // 🔥 REFRESH GRID
+  };
+
+  /* ================= REJECT ================= */
+  const rejectStudent = async (id) => {
+    await axios.put(
+      `http://localhost:5001/api/users/reject/${id}`,
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${user?.token}`,
+        },
+      }
+    );
+    getPendingStudents(); // 🔥 REFRESH GRID
+  };
+
+  /* ================= COLUMNS ================= */
   const columns = [
     {
-      field: "studentName",
+      field: "name",
       headerName: "Student Name",
       flex: 1,
       minWidth: 180,
     },
+    
     {
-      field: "country.label",
+      field: "country",
       headerName: "Country",
       flex: 1,
       minWidth: 180,
+      valueGetter: (params) => params?.row?.country?.label || "-",
     },
     {
       field: "phone",
       headerName: "Phone No",
       flex: 1,
-      minWidth: 180,
+      minWidth: 160,
     },
     {
       field: "email",
@@ -33,104 +88,61 @@ const PendingApproval = () => {
       flex: 1,
       minWidth: 220,
     },
-    {
-      field: "courseName",
-      headerName: "Course Name",
-      flex: 1,
-      minWidth: 200,
-      renderCell: (params) => (
-        <Tooltip title={params?.value}>
-          <Box>{params?.value}</Box>
-        </Tooltip>
-      ),
-    },
-    {
-      field: "courseFee",
-      headerName: "Course Fee (₹)",
-      minWidth: 150,
-    },
-    {
-      field: "amountPaid",
-      headerName: "Paid (₹)",
-      minWidth: 140,
-    },
-    {
-      field: "pendingFee",
-      headerName: "Pending (₹)",
-      minWidth: 150,
-    },
-    {
-      field: "paymentMethod",
-      headerName: "Payment Method",
-      minWidth: 160,
-    },
+   
     {
       field: "status",
-      headerName: "Payment Status",
-      minWidth: 150,
-      renderCell: (params) => (
+      headerName: "Status",
+      minWidth: 140,
+      renderCell: () => (
         <Chip
-          label={params.value}
-          color={
-            params.value === "Completed"
-              ? "success"
-              : params.value === "Partial"
-                ? "warning"
-                : "error"
-          }
+          label="Pending"
+          color="warning"
           size="small"
           sx={{ width: "120px" }}
         />
       ),
     },
     {
-      field: "studentstatus",
-      headerName: "Status",
-      minWidth: 160,
-      renderCell: () => (
-        <Chip
-          label={"Pending"}
-          color={"warning"}
-          size="small"
-          sx={{ width: "120px" }}
-        />
+      field: "action",
+      headerName: "Action",
+      minWidth: 200,
+      sortable: false,
+      renderCell: (params) => (
+        <Stack direction="row" spacing={1}>
+          <Button
+            size="small"
+            variant="contained"
+            color="success"
+            onClick={() => approveStudent(params.row._id)}
+          >
+            Approve
+          </Button>
+          <Button
+            size="small"
+            variant="outlined"
+            color="error"
+            onClick={() => rejectStudent(params.row._id)}
+          >
+            Reject
+          </Button>
+        </Stack>
       ),
     },
   ];
 
-  const [students, setStudents] = useState([]);
-
-  const getActiveStds = () => {
-    axios
-      .get("http://localhost:5001/api/users?status=pending", {
-        headers: {
-          Authorization: `Bearer ${user?.token}`,
-        },
-      })
-      .then((res) => {
-        console.log("res");
-        if (res?.status === 200) {
-        //   setStudents(res?.data);
-        }
-      })
-      .catch((err) => {});
-  };
-  useEffect(() => {
-    getActiveStds();
-  }, []);
-
   return (
-    <Box height={"65vh"}>
+    <Box height="65vh">
       <DataGrid
-        rows={students?.map((ele, i) => ({ ...ele, id: i + 1 }))}
+        rows={students.map((s) => ({
+          ...s,
+          id: s._id, // 🔥 IMPORTANT FOR DATAGRID
+        }))}
         columns={columns}
         disableRowSelectionOnClick
-        disableColumnFilter
         disableColumnMenu
-        checkboxSelection={false}
-        disableColumnSelector
-        hideFooterPagination
+        disableColumnFilter
         disableColumnSorting
+        hideFooterPagination
         sx={{
           border: "none",
           "& .MuiDataGrid-columnHeaders": {

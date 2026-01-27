@@ -15,6 +15,19 @@ const RejectedStudents = () => {
       flex: 1,
       minWidth: 180,
     },
+     /* ========= REJECTED DATE ========= */
+    {
+      field: "rejectedOn",
+      headerName: "Rejected On",
+      minWidth: 160,
+      valueGetter: (params) =>
+        new Date(params.row.updatedAt).toLocaleDateString("en-IN", {
+          day: "2-digit",
+          month: "short",
+          year: "numeric",
+        }),
+    },
+
     {
       field: "country",
       headerName: "Country",

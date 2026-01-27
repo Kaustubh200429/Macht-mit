@@ -1,6 +1,6 @@
 "use client";
-
 import { useState } from "react";
+import Footer from "../common/footer/Footer";
 import axios from "axios";
 import {
   Box,
@@ -19,7 +19,7 @@ import AppToast from "../toast/AppToast";
 const PRIMARY_COLOR = "#20b2a6"; 
 const PAGE_BG = "#f2f2f2"; 
 
-const LoginPage = () => {
+const LoginPage1 = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -159,7 +159,18 @@ const LoginPage = () => {
         severity={toast.severity}
       />
     </Box>
+  
   );
 };
+
+
+function LoginPage() {
+  return (
+    <>  
+      <LoginPage1 />
+      <Footer />
+    </>
+  );
+}
 
 export default LoginPage;
